@@ -12,7 +12,7 @@ pipeline {
         stage("Build") {
             steps {
                 echo "Building the Docker image"
-                sh "sudo docker compose up -d --build
+                sh "sudo docker compose up -d --build"
 "
             }
         }
