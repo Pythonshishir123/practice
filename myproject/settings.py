@@ -73,7 +73,7 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 
 
 # Databas testingouijhggd jdghjdg jdhgjdee
-# https://docs.djangoproject.com/en/5.1/ref/settings/#databases
+# https://docs.djangoproject.com/en/5.1/rdfjkdsjhfkshfkshf/settings/#databases
 
 DATABASES = {
     'default': {
