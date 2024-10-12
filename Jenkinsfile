@@ -2,37 +2,42 @@ pipeline {
     agent any
 
     stages {
-        stage("Clone Code") {
+        stage('Clone') {
             steps {
-                echo "Cloning the code"
-                git url: "https://github.com/Pythonshishir123/practice.git", branch: "main"
+                echo 'Cloning the repository...'
+                git 'https://github.com/Pythonshishir123/practice.git'
             }
         }
-
-        stage("Build") {
+        stage('Build') {
             steps {
-                echo "Building the Docker image"
-                sh "sudo docker compose up -d --build"
-"
+                echo 'Building the project...'
+                // Insert build commands here, e.g., sh 'make build' or mvn build
             }
         }
-
-        stage("Push to Docker Hub") {
+        stage('Test') {
             steps {
-                echo "Pushing the Docker image to Docker Hub"
-                withCredentials([usernamePassword(credentialsId: "dockerHub", passwordVariable: "dockerHubPass", usernameVariable: "dockerHubUser")]) {
-                    sh "docker tag todo-list-app ${env.dockerHubUser}/todo-list-app:latest"
-                    sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPass}"
-                    sh "docker push ${env.dockerHubUser}/todo-list-app:latest"
-                }
+                echo 'Running tests...'
+                // Insert test commands here, e.g., sh 'make test' or mvn test
             }
         }
-
-        stage("Deploy") {
+        stage('Deploy') {
             steps {
-                echo "Deploying the container"
-                sh "docker-compose down && docker-compose up -d"
+                echo 'Deploying the application...'
+                // Insert deploy commands here, e.g., sh 'deploy script'
             }
+        }
+    }
+
+    post {
+        always {
+            echo 'Cleaning up...'
+            // Optional cleanup actions
+        }
+        success {
+            echo 'Pipeline completed successfully.'
+        }
+        failure {
+            echo 'Pipeline failed.'
         }
     }
 }
