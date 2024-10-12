@@ -72,7 +72,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'myproject.wsgi.application'
 
 
-# Databas testingouiee
+# Databas testingouijhggd jdghjdg jdhgjdee
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
