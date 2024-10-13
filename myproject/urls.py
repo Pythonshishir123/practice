@@ -17,7 +17,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.http import HttpResponse
+
+def detail(request):
+    return HttpResponse("You're looking HomePage")
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path("", detail, name="index"),
 ]
